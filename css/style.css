@@ -113,22 +113,21 @@ aside {
 /* contenitore card tutte */
 .container{
     max-width: 100%;
-}
-/* recently played */
-.recently{
-    padding: 1rem;
-}
-.recently h2{
     color: white;
-    margin-bottom: 1rem;
+    padding: 1.5rem;     
+}
+.container h2{
+    margin-bottom: .5rem;
 }
 .card-container{
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
-    justify-content: center;
+    /* justify-content: center; */
     gap: .5rem;
     margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     
 }
 .card div{
@@ -147,6 +146,10 @@ aside {
     text-align: center;
     min-width: calc((100% / 6) - .5rem); 
     flex: 0 0;
+}
+
+.artist img{
+    border-radius: 15em;
 }
 /* medio */
 @media all and (max-width:992px){
