@@ -7,7 +7,7 @@ html{
     font-family: 'Montserrat', sans-serif;
 }
 :root {
-	--width-sidebar: 50px;
+	--width-sidebar: 250px;
 	--height-overlay: 100px;
 	--heigth-controls: 100px;
 }
@@ -20,37 +20,36 @@ img{
     right: 0;
     background-color: #080b128e;
     z-index: 99;
-    width: calc(100% - 300px);
-    height: 70px;
+    width: calc(100% - var(--width-sidebar));
+    height: var(--height-overlay);
 }
 .main{
     background-color: #141922;
-    width: calc(100% - 300px);
+    width: calc(100% - var(--width-sidebar));
     position: fixed;
-    height: calc(100vh - 100px);
-    top: 0;
     right: 0;
-    padding-top: 5.5rem;
-    /* bottom: 100px; */
+    height: calc(100vh - var(--heigth-controls));
+    padding-top: calc(var(--height-overlay) + 1rem);
 }
 .bottom{
-    height: 100px;
-    width: 100%;
+    height: var(--heigth-controls);
     background-color: rgb(36, 36, 36);
     position: fixed;
     bottom: 0;
     right: 0;
+    left: 0;
 }
 /* SIDEBAR */
 aside {
+    width: var(--width-sidebar);
     color: white;
     background-color: #000;
     position: fixed;
-    width: 300px;
-    /* height: calc(100vh - 100px); */
-    height:  calc(100vh - 100px);
-    overflow: hidden;
+    z-index: 20;
+    height:  calc(100vh - var(--heigth-controls));
+    overflow-y: hidden;
     padding: 1.5rem;
+    flex: 0 0 var(--width-sidebar);
 }
 .ico{
     width: 30px;
@@ -151,6 +150,141 @@ aside {
 .artist img{
     border-radius: 15em;
 }
+
+/* footer */
+.bottom{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.controls{
+    display: flex;
+    height: var(--heigth-controls);
+    width: 100%;
+    justify-content: space-between;
+}
+.controls img{
+    width: 100px;
+    height: 100px;
+}
+/* blocchi footer */
+.sez{
+    width: calc(100% / 3);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.s-1{
+    width: calc((100% / 2) - 1rem);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.s-1 h5{
+    display: block;
+}
+/* .sez:nth-child(2){
+    display: block;
+    text-align: center;
+} */
+/* .s-2{
+    width: 100%;
+    display: block;
+} */
+
+.s-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.s-2 i{
+    font-size: 35px;
+    margin-right: 1rem;
+    
+}
+
+.s-2:nth-child(2){
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    justify-content:center;
+}
+
+.song{
+    width: 100%;
+    background-color: #444444;
+    border: 1px solid #444444;
+    border-radius: 15em;
+    height: 5px;
+}
+.s-bar{
+    background-color: #bdbdbd;
+    border-radius: 15em;
+    height: 5px;
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.s-bar{
+    
+    background-color: chartreuse;
+    border-radius: 15em;
+    height: 5px;
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.s-bar i{
+    font-size: 15px;
+    margin: 0
+}
+.fa-solid, .fa-circle{
+    position: ;
+}
+
+.div-1{
+    width: calc(40% - 1rem);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+.volume{
+    display: flex;
+    align-items: center;
+    width: calc(30% - 1rem);
+    background-color: #444444;
+    border: 1px solid #444444;
+    border-radius: 15em;
+    height: 5px;
+}
+.volume i{
+    flex: 1 0;
+    display: none;
+}
+.v-bar{
+    background-color: #bdbdbd;
+    border-radius: 15em;
+    height: 5px;
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+/* .sez:nth-child(1){
+    justify-content: space-between;
+}
+.sez:nth-child(2){
+    display: block;
+}
+.sez:nth-child(3){
+    justify-content: center;
+} */
 /* medio */
 @media all and (max-width:992px){
     .card-container{
