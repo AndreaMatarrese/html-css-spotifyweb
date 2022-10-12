@@ -11,10 +11,15 @@ html{
 	--height-overlay: 100px;
 	--heigth-controls: 100px;
 }
+/* sidebar per mobile */
+.sidebar-xm{
+    display: none;
+}
+/*  */
 img{
     width: 100%;
 }
-
+/* menu superiore in transparenza */
 .top{
     position: fixed;
     right: 0;
@@ -23,6 +28,7 @@ img{
     width: calc(100% - var(--width-sidebar));
     height: var(--height-overlay);
 }
+/* contenuto principale */
 .main{
     background-color: #141922;
     width: calc(100% - var(--width-sidebar));
@@ -31,6 +37,7 @@ img{
     height: calc(100vh - var(--heigth-controls));
     padding-top: calc(var(--height-overlay) + 1rem);
 }
+/* footer */
 .bottom{
     height: var(--heigth-controls);
     background-color: rgb(36, 36, 36);
@@ -40,7 +47,7 @@ img{
     left: 0;
 }
 /* SIDEBAR */
-aside {
+.sidebar-lg {
     width: var(--width-sidebar);
     color: white;
     background-color: #000;
@@ -78,6 +85,11 @@ aside {
     border-bottom: 2px solid #444444;
     margin-bottom: .5rem;
 
+}
+
+.quinto:hover, .sesto:hover{
+    font-weight: 700;
+    cursor: pointer;
 }
 
 .sesto {
@@ -120,16 +132,25 @@ aside {
 .link-side:hover{
     border-left: 2px solid chartreuse;
     font-weight: 600;
+    cursor: pointer;
 }
 .playlist-link div{
     height: 100%;
     display: flex;
     align-items: center;
-    margin: .5rem 0;
-    
+    margin: .5rem 0;    
+}
+.playlist-link div:hover{
+    font-weight: 600;
+    cursor: pointer;
 }
 .ul-play li{
     margin-top: .5rem;
+
+}
+.ul-play li:hover{
+    font-weight: 600;
+    cursor: pointer;
 }
 .playlist-link i{
     font-size: 30px;
@@ -146,7 +167,18 @@ aside {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: .7rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.btn-top:hover{
+    border-radius: 10em;
+    border: 1px solid #fff ;
+    padding:.7rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 .top{
     display: flex;
@@ -162,8 +194,6 @@ aside {
 	overflow-y: auto;
 }
 .menu{
-    max-width: 800px;
-    margin: auto;
     display: flex;
     justify-content: center;
 }
@@ -176,10 +206,14 @@ aside {
 }
 .ul-main li{
     padding: .5rem;
+    border-bottom: 2px solid rgba(128, 255, 0, 0);
+
 }
 .ul-main li:hover{
     padding: .5rem;
     border-bottom: 2px solid chartreuse;
+    cursor: pointer;;
+    font-weight: 600;
 }
 /* contenitore card tutte */
 .container{
@@ -211,6 +245,16 @@ aside {
     object-fit: contain;
     display: block;
 }
+.card img:hover{
+    content: '\f144';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+    filter: opacity(20%);
+    width: 100%;
+    margin-bottom: 1rem;
+    object-fit: contain;
+    display: block;
+}
 
 .card{
     color: white;
@@ -218,7 +262,34 @@ aside {
     min-width: calc((100% / 6) - .5rem); 
     flex: 0 0;
 }
-
+.image{
+    position: relative;
+}
+.card:hover .overlay{
+    opacity: 1;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .2s ease;
+    background-color: rgba(13, 13, 13, 0.64);
+}
+.icona{
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
 .artist img{
     border-radius: 15em;
 }
@@ -237,8 +308,23 @@ aside {
     justify-content: space-between;
 }
 .controls img{
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
+}
+.s-1 i:hover{
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 20px;
+}
+.s-2 i:hover{
+    font-weight: 600;
+    font-size: 40px;
+    cursor: pointer;
+}
+.div-1 i:hover{
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 20px;
 }
 /* blocchi footer */
 .sez{
@@ -249,6 +335,9 @@ aside {
     justify-content: center;
     gap: 1rem;
 }
+.sez img{
+    width: 100%;
+}
 .s-1{
     width: calc((100% / 2) - 1rem);
     display: flex;
@@ -258,15 +347,6 @@ aside {
 .s-1 h5{
     display: block;
 }
-/* .sez:nth-child(2){
-    display: block;
-    text-align: center;
-} */
-/* .s-2{
-    width: 100%;
-    display: block;
-} */
-
 .s-2{
     display: flex;
     align-items: center;
@@ -364,6 +444,15 @@ aside {
         min-width: calc((100% / 4) - .5rem); 
 
     }
+    .menu{
+        max-width: 800px;
+        display: flex;
+        justify-content: center;
+    }
+    .menu ul{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 /* small */
 @media all and (max-width:768px){
@@ -376,9 +465,30 @@ aside {
         min-width: calc((100% / 2) - .5rem); 
 
     }
+    .menu{
+        max-width: 700px;
+        display: flex;
+        justify-content: center;
+    }
+    .menu ul{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 /* extra small */
 @media all and (max-width:576px){
+    :root{
+        --width-sidebar: 50px;
+        --height-overlay: 100px;
+        --heigth-controls: 100px;
+    }
+
+    .logo-lg{
+        display: none;
+    }
+    .logo-xm{
+        width: 100%;
+    }
     .card-container{
         max-width: 560px;
         flex-wrap: wrap;
@@ -388,5 +498,57 @@ aside {
         min-width: calc((100% / 2) - .5rem); 
 
     }
-    
+    .sidebar-lg{
+        display: none;
+    }
+
+    .container-side{
+        padding: .5rem 0;
+    }
+    .logo-xm{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    .logo-xm img{
+        max-width: 75%;
+    }
+    .sidebar-xm{
+        width: var(--width-sidebar);
+        color: white;
+        background-color: #000;
+        position: fixed;
+        z-index: 20;
+       
+        overflow-y: hidden;
+        /* padding: 1.5rem;
+        flex: 0 0 var(--width-sidebar); */
+        display: flex;
+        flex-direction: column;
+    }
+    .list-mobile{
+        height:  calc(100vh - var(--heigth-controls));
+    }
+    .list-mobile li{
+        display: flex;
+        justify-content: center;
+    }
+    .quarto{
+        /* margin-bottom: 100%; */
+    }
+    .main{
+        background-color: #141922;
+        width: calc(100% - var(--width-sidebar));
+        position: fixed;
+        right: 0;
+        height: calc(100vh - var(--heigth-controls));
+        padding-top: calc(var(--height-overlay) + 1rem);
+    }
+    .menu{
+        max-width: 500px;
+        display: flex;
+        justify-content: center;
+    }
 }
